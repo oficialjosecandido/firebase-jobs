@@ -1,0 +1,33 @@
+.store {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: rgb(45, 43, 43);
+
+  .element {
+    min-width: 300px;
+    background-color: transparent;
+    // background-color: rgb(159, 74, 74);
+    margin: 10px 10px;
+    border: solid 2px white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .element h3 {
+    color: white;
+    margin-top: 20px;
+  }
+  .element a {
+    float: left;
+    display: flex;
+
+    flex-wrap: wrap;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+  }
+}
