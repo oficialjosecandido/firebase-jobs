@@ -10,8 +10,10 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'tejoJobs';
-
-  user:any;
+  user: any;
+  q: any;
+  update: boolean = false;
+  client: any;
   closeModal: string | undefined;
 
  
@@ -23,10 +25,6 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
-
-    
-
-
     this.loginService.getLoggedInUser()
       .subscribe( user => {
         console.log( user);

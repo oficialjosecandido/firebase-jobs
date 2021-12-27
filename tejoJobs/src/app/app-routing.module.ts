@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { CreateComponent } from './components/profiles/create/create.component';
 import { DetailsComponent } from './components/profiles/details/details.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent, resolve: { profiles: ProfilesResolver } },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile/:id', component:DetailsComponent},
+  { path: 'create', component:CreateComponent},
 ];
 
 @NgModule({

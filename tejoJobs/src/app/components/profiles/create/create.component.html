@@ -1,1 +1,81 @@
-<p>create works!</p>
+ 
+<section class="section_gap" >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="contact-title">Post your profile</h2>
+        </div>
+        <div class="col-lg-8 mb-4 mb-lg-0" >
+          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <div class="row">              
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="EmployeeName" name="EmployeeName" placeholder="Enter Your Full Name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" [(ngModel)]="Location" name="Location" placeholder="Enter Your Location">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="Primary_Tech" name="Primary_Tech" placeholder="Enter 1 tech (ex: ReactJS)">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <select class="form-control" [(ngModel)]="Department" name="Department">
+                    <option *ngFor="let item of lista">
+                        {{item}}
+                    </option>
+                </select>
+              </div>              
+              <div class="col-12">
+                <div class="form-group">
+                    <textarea class="form-control w-100" [(ngModel)]="Bio" cols="30" rows="9" name="Bio" placeholder="Enter Your Bio"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                  <div class="form-group">
+                    <select class="form-control" [(ngModel)]="Working" name="Working" placeholder="Enter your Availability">
+                        <option *ngFor="let item of avais">
+                            {{item}}
+                        </option>
+                    </select>
+                  </div>                
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select class="form-control" [(ngModel)]="Level" name="Level" placeholder="Enter your Availability">
+                      <option *ngFor="let level of levels">
+                          {{level}}
+                      </option>
+                  </select>
+                </div>                
+            </div>
+              <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="file" (change)="uploadPhoto($event)" style="margin-top: 10px;"/>
+                  </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group mt-lg-3">
+              <button type="submit" (click)="addEmployee()" class="main_btn">Post Profile</button>
+            </div>
+          </form>
+
+
+        </div>
+        <div *ngIf="!uEmail ">
+          <h1>You have to authenticate to add your profile</h1>
+        </div>
+
+        <!--<div class="col-lg-4">
+            <img [src]=PhotoFilePath height="280px;" width="280px;">
+        </div>-->
+      </div>
+    </div>
+</section>
+

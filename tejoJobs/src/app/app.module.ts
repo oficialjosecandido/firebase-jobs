@@ -15,6 +15,8 @@ import { CreateComponent } from './components/profiles/create/create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 
 export const firebaseConfig = {
@@ -35,7 +37,9 @@ export const firebaseConfig = {
     DashboardComponent,
     DetailsComponent,
     CreateComponent,
-    HomeComponent
+    HomeComponent,
+    SearchFilterPipe,
+    SortingPipe
   ],
   imports: [
     BrowserModule,

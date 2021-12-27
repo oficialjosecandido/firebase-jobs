@@ -1,15 +1,97 @@
 
-<!--<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a *ngIf="!user" (click)="loginGoogle()">Login with Google</a>
-  <a *ngIf="user" (click)="logout()">Logout</a>
-  <a disabled>{{ user?.displayName }}</a>
-  <img src="{{user?.photoURL}}" style="max-width: 30px; border-radius: 15px; margin: 10px" alt="">
-</div>-->
+<!--================Header Menu Area =================-->
+<header class="header_area">
+  <div class="top_menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="float-left">
+            <p>Version: 2.0 | October 2021</p>
+            <p>email: tejojobs@tejo360.com</p>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="float-right">
+            <ul class="right_side">
+              <li>
+                <a routerLink="../add">
+                  Post my Profile
+                </a>
+              </li>
+              <!--<li>
+                <a href="tracking.html">
+                  For Companies
+                </a>
+              </li>-->
+              <li>
+                <a routerLink="../contact">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main_menu">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light w-100">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand logo_h" href="index.html">
+          <img src="../assets/img/logo.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+          <div class="row w-100 mr-0">
+            <div class="col-lg-12 pr-0">
+              <ul class="nav navbar-nav center_nav pull-right">
+                
+                <li class="nav-item submenu dropdown">
+                  <a routerLink="profiles" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Profiles</a>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a routerLink="department" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Roles</a>
+                </li>
 
-<div class="fundo">
+                <li class="nav-item submenu dropdown">
+                  <a routerLink="tech" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Techs</a>
+                </li>
+
+                <li class="nav-item submenu dropdown">
+                  <a routerLink="tech" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">News</a>
+                </li>
+                <li class="nav-item" *ngIf="user" >
+                  <a class="nav-link" (click)="triggerModal(modalUser)" > <img src="{{user?.photoURL}}"  style="max-width: 30px; border-radius: 15px;" alt=""></a>
+                </li>
+                <li class="nav-item" *ngIf="!user" >
+                  <a class="nav-link" (click)="triggerModal(modalLogin)"> <img src="assets/icons/gmail.png" style="max-width: 30px; border-radius: 15px;" alt=""></a>
+                </li>
+
+
+              </ul>
+            </div>
+
+            
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>  
+
+
+<!--<div class="fundo">
   <video muted autoplay loop>
     <source src="assets/bg1.mp4" type="video/mp4" >  
   </video>
@@ -17,13 +99,11 @@
     <a href="" class="logo">TEJO JOBS</a>
     <a href="profiles" ><i class="fa fa-users" style="max-width: 30px; border-radius: 15px; color: white;" aria-hidden="true"></i></a>
     <div class="header-right" style="float: right;">
-      <!--<a *ngIf="!user" (click)="loginGoogle()">Login</a>
-      <a *ngIf="user" (click)="logout()">logout</a>-->
       <a *ngIf="user" (click)="triggerModal(modalUser)" ><img src="{{user?.photoURL}}"  style="max-width: 30px; border-radius: 15px;" alt=""></a>
       <a *ngIf="!user" (click)="triggerModal(modalLogin)" ><img src="assets/icons/gmail.png" style="max-width: 30px; border-radius: 15px;" alt=""></a>   
     </div>
   </div>
-</div>
+</div>-->
 
 
 
@@ -63,3 +143,21 @@
 </ng-template>
 
 <router-outlet></router-outlet>
+<!--================ start footer Area  =================-->
+<footer class="footer-area section_gap" style="padding: 30px 0 !important"> 
+  <div class="container">
+    <div class="footer-bottom row align-items-center">
+      <p class="footer-text m-0 col-lg-8 col-md-12">
+      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | 
+      This platform is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://tejo360.com" target="_blank">TEJO360 | IT Solutions</a>
+      </p>
+      <div class="col-lg-4 col-md-12 footer-social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--================ End footer Area  =================-->

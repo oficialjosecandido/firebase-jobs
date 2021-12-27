@@ -56,6 +56,7 @@ export class DetailsComponent implements OnInit {
     this.service.getEmployee(EmployeeId).subscribe(
       (data) => {
         this.Employee = data[0];
+        console.log('this profile info', data[0]);
         this.ImageUrl = this.mediaLocation + this.Employee.PhotoFileName;
       }, 
       error => {

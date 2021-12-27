@@ -1,31 +1,52 @@
 
 
-<div class="bg">
+  <section class="cat_product_area section_gap">
     <div class="container">
-        <div class="element" *ngFor="let dataItem of profilesList">
-            <div class="single-product">
-              <div class="product-img">
-                <img class="card-img" style="max-width: 150px;" src="https://www.tejojobs.com/API/media/{{dataItem.PhotoFileName}}" alt="" />
-                <div class="p_icon">
-                  <a routerLink="../profile/{{dataItem.EmployeeId}}">
-                    <i class="ti-eye"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="product-btm">
-                <a routerLink="../profile/{{dataItem.EmployeeId}}" class="d-block">
-                  <h5>{{dataItem.EmployeeName}}</h5>
-                  <p style="color: grey">{{dataItem.Location}}</p>
-                </a>
-                <div class="mt-3">
-                  <p style="color: grey">{{dataItem.Department}} | €{{dataItem.Expected_Sallary}} <br>
-                  {{dataItem.Primary_Tech}} | {{dataItem.Views}} views</p>
+      <form action="#">
+        <div class="form-group">
+          <div class="d-flex input-group mb-3">
+            <div class="form-group" class="col-lg-6">
+              <h4>Search Profiles:</h4>
+              <input type="text" class="form-control" style="min-width: 290px;" placeholder="Enter your search query" name="query" [(ngModel)]="query" id="listSearch">
+            </div> 
+            <div class="col-lg-6">
+              <span style="margin-top: 40px; float: right;">Total: {{allProfiles}} developers</span>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row flex-row-reverse">
+        <div class="col-lg-12">
+          <div class="latest_product_inner">
+            <div class="row">
+              <div class="col-lg-3 col-md-6" *ngFor="let dataItem of profilesList | searchFilter: query ">
+                <div class="single-product">
+                  <div class="product-img">
+                    <img class="card-img" src="https://www.tejojobs.com/API/media/{{dataItem.PhotoFileName}}" alt="{{dataItem.EmployeeName}}" style="height: 290px; width: 290px;" />
+                    <div class="p_icon">
+                      <a routerLink="../profile/{{dataItem.EmployeeId}}">
+                        <i class="ti-eye"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="product-btm">
+                    <a routerLink="../profile/{{dataItem.EmployeeId}}" class="d-block">
+                      <h5 class="text-center">{{dataItem.EmployeeName}}</h5>
+                      <p class="text-center" style="color: grey">{{dataItem.Location}}</p>
+                    </a>
+                    <div class="mt-3">
+                      <p class="text-center" style="color: grey"><strong>{{dataItem.Department}} </strong> | {{dataItem.Level}} <br>
+                      {{dataItem.Primary_Tech}} | {{dataItem.Views}} views</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        
+      </div>
+      <button  >Load More</button>
     </div>
-</div>
-
-
-
+  </section>

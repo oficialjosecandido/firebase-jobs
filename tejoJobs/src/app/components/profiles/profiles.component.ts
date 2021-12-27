@@ -1,6 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Component, OnInit } from '@angular/core';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,6 +18,9 @@ export class ProfilesComponent implements OnInit {
   profilesList:any=[];
   user: any;
   profiles: any;
+  searchFilter: any = '';
+  query: any; 
+  allProfiles: any;
   
   constructor(
     private profileService:ProfileService,
@@ -33,14 +35,14 @@ export class ProfilesComponent implements OnInit {
       )
     )
     this.getProfiles();
-    this.getUser();
-    
+    this.getUser();    
     
   }
 
   getProfiles() {
     this.profileService.getEmpList().subscribe(data=>{
       this.profilesList=data;
+      this.allProfiles = data.length;
       console.log(data);
     });
   }
@@ -51,6 +53,9 @@ export class ProfilesComponent implements OnInit {
         this.user = user;
       }); 
   }
+
+  
+
 
   tenhoUser() {
     // funciona!

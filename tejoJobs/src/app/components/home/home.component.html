@@ -1,27 +1,191 @@
-<div class="store">
-    <div class="element">
-        <h1><a [routerLink]="['/profiles']"><i class="fa fa-users" style="color: white;" aria-hidden="true"></i></a> </h1>
-        <h3>Profiles</h3>
+<!--================Home Banner Area =================-->
+<section class="home_banner_area mb-40">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div class="banner_content row">
+          <div class="col-lg-12">
+            <h3><span>Post</span> Your <br />IT <span>Profile</span></h3>
+            <h4>And get several IT job opportunities.</h4>
+            <a class="main_btn mt-40" routerLink="../add" >Post Profile</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="element">
-        <h1><a routerLink="/profiles" ><i class="fa fa-forumbee" aria-hidden="true"></i></a> </h1>
-        <h3>Forum</h3>
+  </section>
+  <!--================End Home Banner Area =================-->
+
+  <section class="feature-area section_gap_bottom_custom">
+    <div class="container">      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>How it works</span></h2>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-feature">
+            <a routerLink="add" class="title">
+              <i class="fa fa-plus" style="color: #71cd14"></i>
+              <h3 style="color: #71cd14">STEP 1</h3>
+            </a>
+            <p>Post your Profile</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="fa fa-comments-o" style="color: #71cd14"></i>
+              <h3 style="color: #71cd14">STEP 2</h3>
+            </a>
+            <p>Start talking with companies</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-feature">
+            <a href="#" class="title">
+              <i class="fa fa-check" style="color: #71cd14"></i>
+              <h3 style="color: #71cd14">STEP 3</h3>
+            </a>
+            <p>Get the Job</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="element">
-        <h1><a routerLink="/profiles" ><i class="fa fa-arrows" aria-hidden="true"></i></a> </h1>
-        <h3>Roles</h3>
+  </section>
+
+  <!--================ Feature Product Area =================-->
+  <section class="feature_product_area section_gap_bottom_custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>The authors of TEJO jobs</span></h2>
+            <p>These are the people behind the platform. Contact us if you want to help us for free.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="EmployeeList">
+        <div class="col-lg-4 col-md-6" *ngFor="let dataItem of EmployeeList">
+          <div class="single-product" >
+            <div class="product-img">
+              <img class="card-img" src="https://tejojobs.com/media/{{dataItem.PhotoFileName}}" alt="" />
+              <div class="p_icon">
+                <a routerLink="../profile/{{dataItem.EmployeeId}}">
+                  <i class="ti-eye"></i>
+                </a>
+              </div>
+            </div>
+            <div class="product-btm">
+              <a routerLink="../profile/{{dataItem.EmployeeId}}" class="d-block">
+                <h5>{{dataItem.EmployeeName}}</h5>
+                <p style="color: grey">{{dataItem.Location}}</p>
+              </a>
+              <div class="mt-3">
+                <p style="color: grey">{{dataItem.Department}} | €{{dataItem.Expected_Sallary}} <br>
+                {{dataItem.Primary_Tech}} | {{dataItem.Views}} views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="element">
-        <h1><a routerLink="/profiles" ><i class="fa fa-linux" aria-hidden="true"></i></a> </h1>
-        <h3>Technologies</h3>
+  </section>
+  <!--================ End Feature Product Area =================-->
+
+
+  <!--================ Start Blog Area =================-->
+  <!--<section class="blog-area section-gap">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="main_title">
+            <h2><span>our blog</span></h2>
+            <p>These are some helpful articles for you</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="img/b1.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="single-blog.html">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="img/b2.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="single-blog.html">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog">
+            <div class="thumb">
+              <img class="img-fluid" src="img/b3.jpg" alt="">
+            </div>
+            <div class="short_details">
+              <div class="meta-top d-flex">
+                <a href="#">By Admin</a>
+                <a href="#"><i class="ti-comments-smiley"></i>2 Comments</a>
+              </div>
+              <a class="d-block" href="single-blog.html">
+                <h4>Ford clever bed stops your sleeping
+                  partner hogging the whole</h4>
+              </a>
+              <div class="text-wrap">
+                <p>
+                  Let one fifth i bring fly to divided face for bearing the divide unto seed winged divided light
+                  Forth.
+                </p>
+              </div>
+              <a href="#" class="blog_btn">Learn More <span class="ml-2 ti-arrow-right"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="element">
-        <h1><a routerLink="/profiles" ><i class="fa fa-flag" aria-hidden="true"></i></a> </h1>
-        <h3>Cities</h3>
-    </div>
-    <div class="element">
-        <h1><a routerLink="/profiles" ><i class="fa fa-question" aria-hidden="true"></i></a> </h1>
-        <h3>More info</h3>
-    </div>
-    
-</div>
+  </section>-->
+  <!--================ End Blog Area =================-->
+

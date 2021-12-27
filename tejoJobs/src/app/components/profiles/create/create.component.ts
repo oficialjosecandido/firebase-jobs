@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
@@ -11,9 +12,9 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class CreateComponent implements OnInit {
   profileForm: FormGroup;
 
+  title = 'TEJO | Post my Profile';
   @Input() emp:any;
   Employee: any;
-  error: any;
   userEmail: string | undefined;
   paymentHandler: any;
   EmployeeName: string | undefined;
@@ -36,7 +37,7 @@ export class CreateComponent implements OnInit {
   PhotoFileName:string | undefined;
   PhotoFilePath:string | undefined;
   Email: string | undefined;  
-
+  
   EmployeeId: any;
   Department: any;
   uEmail: any;
@@ -44,14 +45,15 @@ export class CreateComponent implements OnInit {
   lista = ['Full-Stack Developer', 'Front-End Developer', 'Back-End Developer', 'Mobile Developer', 'Data Analyst', 'Data Engineer', 'DevOps', 'Product/Project Manager', 'UI/UX Designer', 'Web Developer'
           , 'Tester/Quality', 'Cloud Engineer', 'Network Engineer', 'AI Engineer', 'Machine Learning Engineer'];
   avais = ['Employed', 'Unemployed', 'Looking for Opportunities']
-  WorkExperience2_title: any;
-  loggedIn: boolean | undefined;
+  levels = ['Senior', 'Mid', 'Junior', 'Trainee']
+  Level: any;
 
 
   constructor(
     public profileService: ProfileService,
     public formBuilder: FormBuilder,
     public router: Router,
+    private loginService: AuthService
   ) { 
     this.profileForm = formBuilder.group({
       name: [''],
@@ -60,6 +62,19 @@ export class CreateComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser() {
+    this.loginService.getLoggedInUser().subscribe( 
+      user => {
+        this.user = user;
+      }); 
+  }
+
+  tenhoUser() {
+    // funciona!
+    console.log('tenho user?', this.user?.displayName);
   }
 
 
@@ -78,12 +93,13 @@ export class CreateComponent implements OnInit {
       github: '',
       linkedin: '', 
       youtube: '',
-      portfolio: ''    
+      portfolio: '',
+      notes: ''    
     };
     this.profileService.createProfile(val).subscribe(res=>{
       alert(res.toString());
     });
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 
   uploadPhoto(event: any){
